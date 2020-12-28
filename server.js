@@ -6,6 +6,10 @@ const PORT    = process.env.PORT || 3000;
 
 server.use(express.static(path.resolve(__dirname, 'dist')));
 
+server.get('/', (req, res) => {
+  res.send('Hello World');
+});
+
 server.listen(PORT, () => {
   console.log(`Server listening on port ${ PORT }`);
 });
