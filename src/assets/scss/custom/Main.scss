@@ -1,0 +1,76 @@
+.Main {
+
+  .Main__navbar {
+    height: 60px;
+    z-index: 0;
+    @include media-breakpoint-up(xl) {
+      height: 100%;
+      width: 90px;
+      min-width: 90px;
+    }
+  }
+
+  .Main__sidebar {
+    width: 100%;
+    z-index: 0;
+    @include media-breakpoint-up(xl) {
+      width: 420px;
+      min-width: 420px;
+    }
+  }
+
+  .Main__topbar {
+    height: 71px;
+    @include media-breakpoint-up(xl) {
+      height: 87px;
+    }
+  }
+
+  .Main__main {
+    // border: 1px solid black;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 0.3s ease-in-out;
+    @include media-breakpoint-up(xl) {
+      position: static;
+    }
+  }
+
+  .Main__main--show {
+    left: 0;
+  }
+
+  .Main__main--hide {
+    left: 100%;
+  }
+
+  .Main__menu {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    transition: all 0.3s ease-in-out;
+    @include media-breakpoint-up(xl) {
+      position: static;
+      width: 350px;
+      min-width: 350px;
+      border-left: 1px solid $secondary;
+    }
+  }
+
+  .Main__menu--show {
+    left: 0;
+    @include media-breakpoint-up(xl) {
+      margin-right: 0px;
+    }
+  }
+
+  .Main__menu--hide {
+    left: 100%;
+    @include media-breakpoint-up(xl) {
+      margin-right: -350px;
+    }
+  }
+}
