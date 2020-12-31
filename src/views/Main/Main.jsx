@@ -1,41 +1,31 @@
-import React from 'react';
-
-/**
- * 
- * 
- * 
- */
-
+import React, { useState, useEffect } from 'react';
+import { 
+  ChatPage, Navbar, ChatSidebar, CreateGroupSidebar, 
+  FindGroupsSidebar, FriendsSidebar, ProfileSidebar,
+} from '../../domain/domain';
 
 const Main = props => {
+  const [activeSidebar, setActiveSidebar] = useState(null);
+
+  const [pageContent, setPageContent] = useState({}); // Default null
   
   return (
     <div className='Main vw-100 vh-100 d-flex flex-column-reverse flex-xl-row overflow-hidden'>
 
-      <nav className='Main__navbar'>
+      <Navbar
+        activeSidebar={ activeSidebar }
+        setActiveSidebar={ setActiveSidebar }
+      />
 
-      </nav>
+      { activeSidebar === 'createGroup' && <CreateGroupSidebar /> }
+      { activeSidebar === 'friendsList' && <FriendsSidebar /> }
+      { activeSidebar === 'chats'       && <ChatSidebar /> }
+      { activeSidebar === 'profile'     && <ProfileSidebar /> }
+      { activeSidebar === 'findGroups'  && <FindGroupsSidebar /> }
 
-      <div className='Main__sidebar bg-secondary h-100'>
+      {/* If no page is selected, render the welcome message */}
 
-      </div>
-
-      <div className='Main__main Main__main--show flex-xl-grow-1 d-flex flex-column bg-white'>
-
-        <div className='Main__topbar border-bottom border-1 border-secondary'></div>
-
-        <div className='flex-grow-1'>
-
-        </div>
-
-      </div>
-
-      <div className='Main__menu Main__menu--hide d-flex flex-column bg-white'>
-
-        <div className='Main__topbar border-bottom border-1 border-secondary'></div>
-
-        <div className='flex-grow-1'></div>
-      </div>
+      <ChatPage /> 
 
     </div>
   );

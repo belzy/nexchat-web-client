@@ -1,0 +1,22 @@
+.IconButton {
+  border: none;
+  outline: none;
+  color: $gray-500;
+  transition: color 0.15s ease-in-out;
+}
+
+.IconButton--primary {
+  @extend .h4;
+}
+
+.IconButton--primary:hover, .IconButton--active {
+  @extend .text-primary;
+}
+
+.IconButton--secondary {
+  @extend .h6;
+}
+
+.IconButton--secondary:hover {
+  @extend .text-dark;
+}

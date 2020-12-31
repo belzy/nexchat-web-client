@@ -1,0 +1,13 @@
+.PageMenu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  transition: all 0.3s ease-in-out;
+  @include media-breakpoint-up(xl) {
+    position: static;
+    width: 350px;
+    min-width: 350px;
+    border-left: 1px solid $secondary;
+  }
+}
