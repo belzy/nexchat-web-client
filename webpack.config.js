@@ -21,6 +21,7 @@ module.exports = {
   output: {
     filename: 'bundle.min.js',
     path: path.resolve(__dirname, 'dist/js'),
+    publicPath: '/',
   },
   module: {
     rules: [{
@@ -42,7 +43,26 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
-    }],
+    }, 
+    {
+      test: /\.(woff(2)?|ttf|eot|png|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          // options: {
+          //   name: '[name].[ext]',
+          //   outputPath: 'dist/media'
+          // }
+        }
+      ]
+    }, 
+    {
+      test: /\.svg$/i, 
+      use: [{
+        loader: 'svg-url-loader'
+      }],
+    }
+    ],
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
