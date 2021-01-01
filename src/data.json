@@ -1,0 +1,25 @@
+{
+  "chats": [{
+      "chatId": "",
+      "image": "",
+      "name": "Public Group 1",
+      "isGroup": true,
+      "messages": [{
+        "userId": "",
+        "name": "John Doe",
+        "text": "Hello World!",
+        "timestamp": "10:32am"
+      }]
+    }, {
+      "chatId": "",
+      "image": "",
+      "name": "Public Group 2",
+      "isGroup": true,
+      "messages": [{
+        "userId": "",
+        "name": "Jane Doe",
+        "text": "Goodbye World!",
+        "timestamp": "8 min ago"
+      }]
+    }]
+}

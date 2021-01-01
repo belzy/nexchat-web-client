@@ -43,9 +43,13 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
-    }, 
-    {
-      test: /\.(woff(2)?|ttf|eot|png|jpe?g|gif)$/i,
+    }, {
+      test: /\.png$/,
+      use: [{
+          loader: "url-loader?mimetype=image/png" 
+      }]
+    }, {
+      test: /\.(woff(2)?|ttf|eot|jpe?g|gif)$/i,
       use: [
         {
           loader: 'file-loader',
@@ -55,14 +59,12 @@ module.exports = {
           // }
         }
       ]
-    }, 
-    {
+    }, {
       test: /\.svg$/i, 
       use: [{
         loader: 'svg-url-loader'
       }],
-    }
-    ],
+    }],
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [

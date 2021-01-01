@@ -4,6 +4,7 @@ export { default as ChatPage           } from './Chats/ChatPage/ChatPage';
 export { default as ChatMenu           } from './Chats/ChatMenu/ChatMenu';
 export { default as LoginForm          } from  './Auth/LoginForm/LoginForm';
 export { default as ChatHeader         } from './Chats/ChatHeader/ChatHeader';
+export { default as ChatFooter         } from './Chats/ChatFooter/ChatFooter';
 export { default as ChatSidebar        } from './Chats/ChatSidebar/ChatSidebar';
 export { default as RegisterForm       } from './Auth/RegisterForm/RegisterForm';
 export { default as FriendsSidebar     } from './Friends/FriendsSidebar/FriendsSidebar';

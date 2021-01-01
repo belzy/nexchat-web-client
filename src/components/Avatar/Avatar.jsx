@@ -1,6 +1,9 @@
 import React from 'react';
+import avatarPlaceholder from '../../assets/img/avatar-placeholder-92x92.png';
 
 const Avatar = props => {
+
+  const src = props.src || "";
 
   // Will have status prop: online, offline, none
 
@@ -8,16 +11,16 @@ const Avatar = props => {
   switch (props.size) {
     default:
     case 'sm':
-      width = '34';
-      height = '34';
-      break;
-    case 'md':
       width = '44';
       height = '44';
       break;
+    case 'md':
+      width = '50';
+      height = '50';
+      break;
     case 'lg':
-      width = '54';
-      height = '54';
+      width = '64';
+      height = '64';
       break;
   }
 
@@ -26,11 +29,11 @@ const Avatar = props => {
     <a href={ props.href } className={` ${ props.className || '' }`}>
 
       <img 
-        src={ props.src } 
+        src={ src === "" ? avatarPlaceholder : src } 
         width={ width } 
         height={ height } 
         alt={ props.alt } 
-        className='border border-2 border-primary rounded-circle'
+        className='rounded-circle'
       />
 
     </a>
