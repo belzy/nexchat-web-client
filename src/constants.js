@@ -1,1 +1,1 @@
-export const CHAT_SERVICE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:8080' : '';
+export const CHAT_SERVICE_URL = 'https://nexchat-chat-service.herokuapp.com/';
