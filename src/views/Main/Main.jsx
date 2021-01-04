@@ -28,6 +28,8 @@ const MainGreeting = props => {
 
 const Main = props => {
 
+  console.log(constants.CHAT_SERVICE_URL);
+
   // UI State
   const [activeSidebar, setActiveSidebar] = useState('chats');
   const [activePage, setActivePage] = useState(null);
