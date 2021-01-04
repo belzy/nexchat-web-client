@@ -5,6 +5,14 @@ import {
   FindGroupsSidebar, FriendsSidebar, ProfileSidebar,
 } from '../../domain/domain';
 import { Avatar } from '../../components/components';
+import { io } from 'socket.io-client';
+import * as constants from '../../constants';
+import { v4 as uuidv4 } from 'uuid';
+import faker from 'faker';
+
+const socket = io(constants.CHAT_SERVICE_URL);
+const id = uuidv4();
+const name = faker.name.findName();
 
 const MainGreeting = props => {
   return (
@@ -29,12 +37,41 @@ const Main = props => {
     window.addEventListener('resize', e => {
       setInnerWidth(window.innerWidth);
     });
-  }, [])
+  }, []);
 
   // Data state
-  const [pageContent, setPageContent] = useState({}); // Default null
+  const [user, setUser] = useState({ id, name });
   const [chats, setChats] = useState([ ...data.chats ]); // Refactor to use context API
-  
+  const [activeChat, setActiveChat] = useState(null); // Chat ID 
+
+  useEffect(() => {
+
+    // Refactor socket.io for modularity
+    socket.on('message', msg => {
+
+      const newChats = [ ...chats ];
+      newChats.forEach(chat => {
+        if (chat.chatId === msg.chatId) {
+          chat.messages.push({ userId: msg.user.id, name: msg.user.name, text: msg.text, timestamp: '12:00am' });
+        }
+      });
+
+      setChats(newChats);
+    });
+
+  }, []);
+
+
+  const handleMessageSubmit = (e, msg) => {
+    e.preventDefault();
+
+    const text = msg.value;
+    const userId = msg.user.id;
+    const chatId = msg.chat.chatId;
+
+    socket.emit('message', { text, user, chatId })
+  }
+
   return (
     <div className='Main vw-100 vh-100 d-flex flex-column-reverse flex-xl-row overflow-hidden'>
 
@@ -51,6 +88,8 @@ const Main = props => {
           chats={ chats } 
           activePage={ activePage } 
           setActivePage={ setActivePage } 
+          activeChat={ activeChat }
+          setActiveChat={ setActiveChat }
         /> }
 
       { activeSidebar === 'profile'     && <ProfileSidebar />     }
@@ -68,6 +107,9 @@ const Main = props => {
           <ChatPage
             activePage={ activePage }
             setActivePage={ setActivePage }
+            chat={ chats.filter(chat => chat.chatId === activeChat)[0] }
+            user={ user }
+            handleMessageSubmit={ handleMessageSubmit }
           /> 
         ) }
 

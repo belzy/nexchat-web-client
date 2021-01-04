@@ -31,8 +31,8 @@ const ChatHeader = props => {
             <Avatar size='sm' src='' className='mr-3 d-none d-xl-block' />
 
             <div className='text-center text-xl-left w-100'>
-              <h6 className='h6 m-0 p-0 text-dark'>{ props.heading }</h6>
-              <small className='ChatHeader__sub-heading m-0 p-0'>{ props.subHeading }</small>
+              <h6 className='h6 m-0 p-0 font-weight-bold'>{ props.heading }</h6>
+              <p className='ChatHeader__sub-heading m-0 p-0'>{ props.subHeading }</p>
             </div>
           </Col>
 

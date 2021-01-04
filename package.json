@@ -27,6 +27,7 @@
     "copy-webpack-plugin": "^7.0.0",
     "css-loader": "^5.0.1",
     "dotenv": "^8.2.0",
+    "dotenv-webpack": "^6.0.0",
     "file-loader": "^6.2.0",
     "html-minimizer-webpack-plugin": "^2.0.0",
     "node-sass": "^5.0.0",
@@ -50,6 +51,7 @@
     "bootstrap": "^4.5.3",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "faker": "^5.1.0",
     "helmet": "^4.3.1",
     "helmet-csp": "^3.3.1",
     "jquery": "^3.5.1",
@@ -58,6 +60,8 @@
     "react-dom": "^16.14.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "reactstrap": "^8.8.0"
+    "reactstrap": "^8.8.0",
+    "socket.io-client": "^3.0.4",
+    "uuid": "^8.3.2"
   }
 }

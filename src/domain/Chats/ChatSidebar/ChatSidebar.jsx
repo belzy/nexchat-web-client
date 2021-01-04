@@ -7,7 +7,7 @@ import {
 
 const ChatCardItem = props => {
 
-  const { chatId, name, image, isGroup, messages } = props.chatData;
+  const { chatId, name, image, isGroup, messages } = props.chat;
   const newestMessage = messages[messages.length - 1];
 
   return (
@@ -20,8 +20,8 @@ const ChatCardItem = props => {
         <CardBody className='d-flex align-items-center'>
           <Avatar className='mr-3' size='md' src={ image } />
 
-          <div className='flex-grow-1'>
-            <div className='d-flex justify-content-between w-100 align-items-center'>
+          <div className='flex-grow-1 text-truncate'>
+            <div className='d-flex justify-content-between w-100 align-items-center text-truncate'>
               <h5 className='text-truncate h6 mb-0 font-weight-bold'>{ name }</h5>
               <p className='text-muted mb-0 text-nowrap ml-3'>{ newestMessage.timestamp }</p>
             </div>
@@ -42,8 +42,11 @@ const ChatCardList = props => {
         props.chats.map((chat, index) => (
           <ChatCardItem 
             key={ index } 
-            chatData={ chat } 
-            onClick={ e => props.setActivePage(props.activePage !== 'chat' ? 'chat' : props.activePage) }
+            chat={ chat } 
+            onClick={ e => {
+              props.setActiveChat(chat.chatId);
+              props.setActivePage(props.activePage !== 'chat' ? 'chat' : props.activePage) 
+            }}
           />
         ))
       }      
@@ -62,6 +65,8 @@ const ChatSidebar = props => {
         chats={ props.chats } 
         activePage={ props.activePage }
         setActivePage={ props.setActivePage }
+        activeChat={ props.activeChat }
+        setActiveChat={ props.setActiveChat }
       />
       
     </Sidebar>

@@ -18,7 +18,7 @@ const ChatMenu = props => {
   return (
     <PageMenu visible={ props.visible }>
       <PageHeader>
-        <Container fluid={ true } className='d-flex justify-content-between' style={{ height: '48px' }}>
+        <Container fluid={ true } className='d-flex justify-content-between' style={{ height: '52px' }}>
           <IconButton
             renderIcon={ <FontAwesomeIcon icon={ faChevronLeft } /> }
             onClick={ e => props.setShowMenu(!props.visible) }

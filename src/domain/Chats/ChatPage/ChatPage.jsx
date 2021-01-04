@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import {
-  ChatHeader, ChatMenu, ChatFooter,
+  ChatHeader, ChatMenu, ChatFooter, ChatMessages,
 } from '../../domain';
 import {
   Page,
@@ -25,7 +25,16 @@ const ChatPage = props => {
             setShowMenu={ setShowMenu }
           />
 
-          <ChatFooter />
+          <ChatMessages 
+            messages={ props.chat.messages || [] } 
+            user={ props.user }
+          />
+
+          <ChatFooter 
+            handleMessageSubmit={ props.handleMessageSubmit }
+            chat={ props.chat }
+            user={ props.user }
+          />
         </div>
       
         <ChatMenu

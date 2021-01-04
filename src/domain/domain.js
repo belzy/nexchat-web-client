@@ -6,6 +6,8 @@ export { default as LoginForm          } from  './Auth/LoginForm/LoginForm';
 export { default as ChatHeader         } from './Chats/ChatHeader/ChatHeader';
 export { default as ChatFooter         } from './Chats/ChatFooter/ChatFooter';
 export { default as ChatSidebar        } from './Chats/ChatSidebar/ChatSidebar';
+export { default as ChatMessage        } from './Chats/ChatMessage/ChatMessage';
+export { default as ChatMessages       } from './Chats/ChatMessages/ChatMessages';
 export { default as RegisterForm       } from './Auth/RegisterForm/RegisterForm';
 export { default as FriendsSidebar     } from './Friends/FriendsSidebar/FriendsSidebar';
 export { default as ProfileSidebar     } from './Profile/ProfileSidebar/ProfileSidebar';

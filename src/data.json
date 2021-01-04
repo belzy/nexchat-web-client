@@ -1,24 +1,25 @@
 {
   "chats": [{
-      "chatId": "",
+      "chatId": "0",
       "image": "",
       "name": "Public Group 1",
       "isGroup": true,
-      "messages": [{
-        "userId": "",
-        "name": "John Doe",
-        "text": "Hello World!",
+      "messages": [
+        {
+        "userId": "0",
+        "name": "System",
+        "text": "Welcome to Public Group 1!",
         "timestamp": "10:32am"
       }]
     }, {
-      "chatId": "",
+      "chatId": "1",
       "image": "",
       "name": "Public Group 2",
       "isGroup": true,
       "messages": [{
-        "userId": "",
-        "name": "Jane Doe",
-        "text": "Goodbye World!",
+        "userId": "0",
+        "name": "System",
+        "text": "Welcome to Public Group 2!",
         "timestamp": "8 min ago"
       }]
     }]

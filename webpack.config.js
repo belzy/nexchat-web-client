@@ -1,4 +1,5 @@
 require('dotenv').config();
+const Dotenv = require('dotenv-webpack');
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack    = require('webpack');
@@ -68,6 +69,7 @@ module.exports = {
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
+    new Dotenv(),
     new CopyPlugin({
       patterns: [{
           from: path.resolve(__dirname, 'public'),
