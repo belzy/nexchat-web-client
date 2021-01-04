@@ -1,0 +1,8 @@
+.Sidebar {
+    width: 100%;
+    z-index: 0;
+    @include media-breakpoint-up(xl) {
+      width: 420px;
+      min-width: 420px;
+    }
+  }

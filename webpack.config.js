@@ -1,4 +1,5 @@
 require('dotenv').config();
+const Dotenv = require('dotenv-webpack');
 const HtmlMinimizerPlugin = require("html-minimizer-webpack-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const webpack    = require('webpack');
@@ -21,6 +22,7 @@ module.exports = {
   output: {
     filename: 'bundle.min.js',
     path: path.resolve(__dirname, 'dist/js'),
+    publicPath: '/',
   },
   module: {
     rules: [{
@@ -42,10 +44,32 @@ module.exports = {
           presets: ['@babel/preset-env', '@babel/preset-react']
         }
       }
+    }, {
+      test: /\.png$/,
+      use: [{
+          loader: "url-loader?mimetype=image/png" 
+      }]
+    }, {
+      test: /\.(woff(2)?|ttf|eot|jpe?g|gif)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          // options: {
+          //   name: '[name].[ext]',
+          //   outputPath: 'dist/media'
+          // }
+        }
+      ]
+    }, {
+      test: /\.svg$/i, 
+      use: [{
+        loader: 'svg-url-loader'
+      }],
     }],
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
+    new Dotenv(),
     new CopyPlugin({
       patterns: [{
           from: path.resolve(__dirname, 'public'),

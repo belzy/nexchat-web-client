@@ -1,0 +1,78 @@
+
+.register-form-container {
+  @extend .d-flex;
+  @extend .flex-column;
+  @extend .justify-content-center;
+  @extend .align-items-center;
+  @extend .h-100;
+  max-width: 403px;
+  width: 90%;
+  margin: auto;
+}
+
+.register-form-card {
+  @extend .w-100;
+}
+
+.register-form {
+  height: 100%;
+
+  .top {
+      @extend .p-5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+  }
+
+  .top-buttons {
+      display: flex;
+      justify-content: center;
+
+      button {
+          flex: 1;
+      }
+  }
+
+  .bottom {
+      @extend .px-5;
+      @extend .py-6;
+      border-top: 1px solid $gray-200;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background-color: $secondary;
+  }
+
+}
+
+@media only screen and (max-width: 730px) {
+  .register-form {
+      .top {
+          padding: 38px 16px !important;
+      }
+
+      .bottom {
+          padding: 38px 16px !important;
+      }
+  }
+  
+}
+
+@media only screen and (max-width: 370px) {
+  .register-form {
+      .top .top-buttons {
+          flex-direction: column !important;
+          height: 100px;
+          justify-content: space-between;
+
+          button {
+              margin: 0 !important;
+              max-height: 43px;
+          }
+
+
+      }
+  }
+}

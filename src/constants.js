@@ -1,0 +1,1 @@
+export const CHAT_SERVICE_URL = 'https://nexchat-chat-service.herokuapp.com/';

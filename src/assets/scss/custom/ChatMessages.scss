@@ -1,0 +1,10 @@
+.ChatMessages {
+  .ChatMessages__list {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .ChatMessages__list::-webkit-scrollbar {
+    display: none;
+  }
+}
