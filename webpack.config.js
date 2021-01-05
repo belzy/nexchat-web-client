@@ -69,7 +69,7 @@ module.exports = {
   },
   resolve: { extensions: ['*', '.js', '.jsx'] },
   plugins: [
-    new Dotenv(),
+    process.env.NODE_ENV !== 'production' && new Dotenv(),
     new CopyPlugin({
       patterns: [{
           from: path.resolve(__dirname, 'public'),
